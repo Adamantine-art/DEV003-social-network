@@ -60,6 +60,9 @@ export const reviews = () => {
   // postReviewButton.addEventListener('click', () => {
   // });
 
+  // otra promesa ? o un if, que al ejecutarse el evento se muestre otra estructura de html
+  // trabajar con textarea.value (?)
+
   divReview.append(bannerContainer, reviewSection);
   bannerContainer.append(albumTitle, buttonBackReview);
   albumTitle.appendChild(albumDate);

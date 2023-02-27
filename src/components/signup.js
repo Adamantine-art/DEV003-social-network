@@ -100,6 +100,7 @@ export const signUp = (props = {}) => {
         }
       })
       .finally(() => {
+        console.log(props);
         if (props.testSignUpCallback) {
           props.testSignUpCallback();
         }
@@ -108,9 +109,13 @@ export const signUp = (props = {}) => {
 
   // Botón de Google
   buttonLogIn.addEventListener('click', () => {
-    if (loginWithGoogle()) { // revisar esto
+    // if (loginWithGoogle()) {
+    //   onNavigate('/home');
+    // }
+    loginWithGoogle().then((res) => {
+      console.log(res);
       onNavigate('/home');
-    }
+    });
   });
 
   // Botón de cuenta existente
