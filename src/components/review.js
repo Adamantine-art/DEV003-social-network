@@ -44,7 +44,7 @@ export const reviews = () => {
   username.className = 'username';
   username.textContent = 'nombre de usuario';
 
-  const inputReview = document.createElement('input');
+  const inputReview = document.createElement('textarea');
   inputReview.className = 'input-review';
 
   const postReviewButton = document.createElement('button');

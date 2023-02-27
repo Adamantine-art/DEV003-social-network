@@ -109,6 +109,8 @@
   font-weight: bold;
   font-size: 70%;
   text-decoration: none;
+  background: none;
+  border: none;
 }
 
 .log-in-text:hover {

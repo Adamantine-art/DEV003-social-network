@@ -65,7 +65,7 @@ export const signUp = (props = {}) => {
   bottomText.className = 'bottom-text';
   bottomText.textContent = '¿Ya tienes una cuenta?';
 
-  const logInText = document.createElement('p');
+  const logInText = document.createElement('button');
   logInText.textContent = 'Inicia sesión acá';
   logInText.className = 'log-in-text';
   logInText.id = 'logInText';
@@ -106,10 +106,14 @@ export const signUp = (props = {}) => {
       });
   });
 
+  // Botón de Google
   buttonLogIn.addEventListener('click', () => {
-    loginWithGoogle();
+    if (loginWithGoogle()) { // revisar esto
+      onNavigate('/home');
+    }
   });
 
+  // Botón de cuenta existente
   logInText.addEventListener('click', () => {
     onNavigate('/login');
   });
