@@ -5,7 +5,7 @@ export const album = () => {
   sectionAlbum.className = 'main-container-album';
 
   const header = document.createElement('header');
-  header.className = 'header-home';
+  header.className = 'header';
 
   const logoHome = document.createElement('img');
   logoHome.className = 'logoHome';
@@ -33,7 +33,7 @@ export const album = () => {
   itemAlbum.className = 'item-album';
 
   const itemAlbum1 = document.createElement('div');
-  itemAlbum1.className = 'item-album';
+  itemAlbum1.className = 'item-album1';
 
   const imgAlbum = document.createElement('div');
   imgAlbum.className = 'img-album';
@@ -58,6 +58,10 @@ export const album = () => {
   const moreOptions = document.createElement('img');
   moreOptions.className = 'more-options';
   moreOptions.src = 'img/more-vert.png';
+
+  logoHome.addEventListener('click', () => {
+    onNavigate('/home');
+  });
 
   nameAlbum.addEventListener('click', () => {
     onNavigate('/review');

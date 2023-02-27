@@ -109,8 +109,9 @@
   font-weight: bold;
   font-size: 70%;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .log-in-text:hover {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(254, 250, 254, 0.5);
 }
