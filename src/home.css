@@ -67,7 +67,6 @@ body {
     width: 20%;
     height: 15%;
     margin: 1%;
-
 }
 
 .trending {
@@ -94,6 +93,10 @@ body {
     width: 20%;
     height: 15%;
     margin: 1%;
+}
+
+.albums:hover {
+    text-decoration: underline;
 }
 
 .artists {
@@ -135,11 +138,11 @@ body {
     margin: 1%;
 }
 
-.recommended {
+/* .recommended {
     color: #FFFFFF;
 }
 
-.rec-title { /*revisar acá*/
+.rec-title {
     display: flex;
     justify-content: space-between;
     background-image: url(img/artistas.png);
@@ -179,4 +182,4 @@ body {
 .rec-img {
     background-image: url(img/cd1.png);
     width: 10%;
-}
+} */

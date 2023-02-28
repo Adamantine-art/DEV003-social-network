@@ -5,9 +5,11 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithRedirect,
-  signInWithEmailAndPassword,
+  signInWithEmailAndPassword, getRedirectResult,
 } from 'firebase/auth';
-// import { onNavigate } from '../router/utils';
+import {
+  getFirestore, doc, setDoc, collection,
+} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA1E6v0tl-VMKi90Oqck7ywqNNbgBj6lBE',
@@ -32,8 +34,22 @@ export const signIn = (email, password) => signInWithEmailAndPassword(auth, emai
 // función de google provider
 export const loginWithGoogle = () => {
   const provider = new GoogleAuthProvider();
-  return signInWithRedirect(auth, provider);
+  return new Promise((resolve) => {
+    signInWithRedirect(auth, provider);
+    resolve(getRedirectResult(auth));
+    // resolve(signInWithRedirect(auth, provider));
+    // resolve(signInWithRedirect(auth, provider))
+  });
 };
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+export const createReview = (username, comment) => setDoc(doc(collection(db, 'reviews')), {
+  username,
+  comment,
+  likes: [],
+});
 
 // onAuthStateChanged(auth, (user) => {
 //   if (user) {

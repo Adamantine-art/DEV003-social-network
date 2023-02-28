@@ -65,7 +65,7 @@ export const signUp = (props = {}) => {
   bottomText.className = 'bottom-text';
   bottomText.textContent = '¿Ya tienes una cuenta?';
 
-  const logInText = document.createElement('p');
+  const logInText = document.createElement('button');
   logInText.textContent = 'Inicia sesión acá';
   logInText.className = 'log-in-text';
   logInText.id = 'logInText';
@@ -100,17 +100,26 @@ export const signUp = (props = {}) => {
           console.log(error.code, error.message);
         }
       })
-      // .finally(() => {
-      //   if (props.testSignUpCallback) {
-      //     props.testSignUpCallback();
-      //   }
-      // });
+      .finally(() => {
+        console.log(props);
+        if (props.testSignUpCallback) {
+          props.testSignUpCallback();
+        }
+      });
   });
 
+  // Botón de Google
   buttonLogIn.addEventListener('click', () => {
-    loginWithGoogle();
+    // if (loginWithGoogle()) {
+    //   onNavigate('/home');
+    // }
+    loginWithGoogle().then((res) => {
+      console.log(res);
+      onNavigate('/home');
+    });
   });
 
+  // Botón de cuenta existente
   logInText.addEventListener('click', () => {
     onNavigate('/login');
   });
