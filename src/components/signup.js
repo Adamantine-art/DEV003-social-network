@@ -89,10 +89,11 @@ export const signUp = (props = {}) => {
       .catch((error) => {
         errorContent.style.display = 'block';
         const errorCode = error.code;
+        console.log(errorCode);
 
         if (errorCode === 'auth/weak-password') {
           errorContent.innerHTML = 'La contraseña debe tener al menos 6 carácteres';
-        } else if (errorCode === 'auth/missing-email') {
+        } else if (errorCode === 'auth/invalid-email') {
           errorContent.innerHTML = 'Llena todos los campos';
         } else {
           errorContent.innerHTML = 'Hubo un error';

@@ -4,9 +4,7 @@ import { signIn as signInFirebase } from '../lib-firebase';
 export const logIn = () => {
   const divLogin = document.createElement('div');
   divLogin.className = 'login-container';
-  const button = document.createElement('button');
   const inputEmail = document.createElement('input');
-  const buttonBack = document.createElement('button');
 
   // LOGO
   const logo = document.createElement('img');
@@ -21,6 +19,11 @@ export const logIn = () => {
   const title = document.createElement('h2');
   title.textContent = 'Sign In';
   title.className = 'sign-in-title';
+
+  //error content
+  const errorContent = document.createElement('p');
+  errorContent.id = 'errorContent';
+  errorContent.className = 'error-content';
 
   // Email
   const email = document.createElement('h4');
@@ -51,6 +54,20 @@ export const logIn = () => {
   arrow.className = 'arrow';
   arrow.src = 'img/flechita.png';
 
+  //Registro
+
+  const bottomTextContainer = document.createElement('div');
+  bottomTextContainer.className = 'bottom-text-container';
+
+  const bottomText = document.createElement('p');
+  bottomText.className = 'bottom-text';
+  bottomText.textContent = '¿No tienes una cuenta?';
+
+  const logInText = document.createElement('p');
+  logInText.textContent = 'Regístrate acá';
+  logInText.className = 'log-in-text';
+  logInText.id = 'logInText';
+
   // Event Listener y conexión a Firebase
   buttonLogin.addEventListener('click', () => {
     const userEmail = document.getElementById('emailInput').value;
@@ -61,35 +78,31 @@ export const logIn = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+        onNavigate('/home');
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
+        errorContent.style.display = 'block';
+        errorContent.innerHTML = 'Hubo un error';
+        console.log(error.code, error.message);
       });
-
-    // onNavigate('/login');
   });
 
-  button.addEventListener('click', () => {
-    onNavigate('/home');
-  });
-  buttonBack.addEventListener('click', () => {
+  logInText.addEventListener('click', () => {
     onNavigate('/');
   });
-  button.textContent = 'Botón de LogIn';
-  buttonBack.textContent = 'Botón de Regreso';
-  divLogin.append(logo, loginForm, buttonLogin);
+
+  divLogin.append(logo, loginForm, buttonLogin,bottomTextContainer);
   loginForm.append(
     title,
+    errorContent,
     email,
     inputEmail,
     password,
-    inputPass,
-    button,
-    buttonBack,
+    inputPass, 
   );
   buttonLogin.appendChild(arrow);
+
+  bottomTextContainer.append(bottomText,logInText)
 
   return divLogin;
 };

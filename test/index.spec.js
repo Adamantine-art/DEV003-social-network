@@ -17,7 +17,7 @@ describe('Sign Up Form', () => {
     document.body.innerHTML = '';
   });
   it('should show error when user didnt fill all the fields', (done) => {
-    signUpFirebase.mockRejectedValueOnce({ code: 'auth/missing-email' });
+    signUpFirebase.mockRejectedValueOnce({ code: 'auth/invalid-email' });
 
     const testSignUpCallback = () => {
       expect(document.getElementById('errorContent').innerHTML).toEqual('Llena todos los campos');
