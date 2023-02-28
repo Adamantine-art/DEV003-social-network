@@ -11,6 +11,7 @@ describe('Sign Up Function', () => {
   });
 });
 
+// Función asíncrona - botón de Sign Up
 describe('Sign Up Form', () => {
   beforeEach(() => {
     document.body.innerHTML = '';
@@ -18,23 +19,23 @@ describe('Sign Up Form', () => {
   it('should show error when user didnt fill all the fields', (done) => {
     signUpFirebase.mockRejectedValueOnce({ code: 'auth/missing-email' });
 
-    const testCallback = () => {
+    const testSignUpCallback = () => {
       expect(document.getElementById('errorContent').innerHTML).toEqual('Llena todos los campos');
       done();
     };
 
-    document.body.append(signUp({ testCallback }));
+    document.body.append(signUp({ testSignUpCallback }));
 
     document.getElementById('signUpBtn').click();
   });
 
   it('should show error when user use weak password', (done) => {
     signUpFirebase.mockRejectedValueOnce({ code: 'auth/weak-password' });
-    const testCallback = () => {
+    const testSignUpCallback = () => {
       expect(document.getElementById('errorContent').innerHTML).toEqual('La contraseña debe tener al menos 6 carácteres');
       done();
     };
-    document.body.append(signUp({ testCallback }));
+    document.body.append(signUp({ testSignUpCallback }));
     document.getElementById('signUpBtn').click();
   });
 });
