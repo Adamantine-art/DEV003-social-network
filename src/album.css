@@ -27,6 +27,14 @@ body{
   cursor: pointer;
 }
 
+.logoHome:hover {
+  width: 12%;
+  height: 12%;
+  background: rgba(255, 255, 255, 0.5);
+  border-style: none;
+  border-radius: 50%;
+}
+
 .user {
   width: 3.4rem;
   height: 3.4rem;
@@ -88,6 +96,10 @@ body{
   .name-Album{
     padding: 1rem 1rem 0rem  2rem;
     cursor: pointer;
+  }
+
+  .name-Album:hover {
+    text-decoration: underline;
   }
 
   .item-album-icons{

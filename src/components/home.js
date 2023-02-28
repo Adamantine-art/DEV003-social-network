@@ -32,7 +32,7 @@ export const home = () => {
   trending.textContent = 'Tendencias';
   trending.className = 'trending';
 
-  const album = document.createElement('div'); // este botón direcciona a álbum
+  const album = document.createElement('a'); // este botón direcciona a álbum
   album.textContent = 'Álbum';
   album.className = 'albums';
 
@@ -48,38 +48,35 @@ export const home = () => {
   songs.textContent = 'Canciones';
   songs.className = 'songs';
 
-  const recommended = document.createElement('h4');
-  recommended.textContent = 'RECOMENDADOS';
-  recommended.className = 'recommended';
+  // const recommended = document.createElement('h4');
+  // recommended.textContent = 'RECOMENDADOS';
+  // recommended.className = 'recommended';
 
-  const recTitle = document.createElement('div');
-  recTitle.className = 'rec-title';
+  // const recTitle = document.createElement('div');
+  // recTitle.className = 'rec-title';
 
-  const recButton = document.createElement('div');
-  recButton.className = 'rec-button';
+  // const recButton = document.createElement('div');
+  // recButton.className = 'rec-button';
 
-  const recArrow = document.createElement('img');
-  recArrow.className = 'rec-arrow';
-  recArrow.src = 'img/flechita.png';
+  // const recArrow = document.createElement('img');
+  // recArrow.className = 'rec-arrow';
+  // recArrow.src = 'img/flechita.png';
 
-  const recContainer = document.createElement('div');
-  recContainer.className = 'rec-container';
+  // const recContainer = document.createElement('div');
+  // recContainer.className = 'rec-container';
 
-  const recImg = document.createElement('div');
-  recImg.className = 'rec-img';
+  // const recImg = document.createElement('div');
+  // recImg.className = 'rec-img';
 
   album.addEventListener('click', () => {
     onNavigate('/album');
   });
 
-  homeDiv.append(header, categoryList, recTitle, recContainer);
+  homeDiv.append(header, categoryList);
   header.append(logoHome, userIcon);
   categoryList.append(categoriesColumn1, categoriesColumn2);
   categoriesColumn1.append(favorites, trending, album);
   categoriesColumn2.append(artists, genres, songs);
-  recTitle.append(recommended, recButton);
-  recButton.appendChild(recArrow);
-  recContainer.appendChild(recImg);
 
   return homeDiv;
 };

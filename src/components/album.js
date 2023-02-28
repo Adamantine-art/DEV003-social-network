@@ -67,6 +67,10 @@ export const album = () => {
     onNavigate('/review');
   });
 
+  logoHome.addEventListener('click', () => {
+    onNavigate('/home');
+  });
+
   sectionAlbum.append(header, titleMenuAlbum, containerAlbum);
   header.append(logoHome, userIcon);
   containerAlbum.append(titleOptionAlbum, containerItemAlbum);

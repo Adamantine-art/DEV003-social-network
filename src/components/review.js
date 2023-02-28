@@ -44,7 +44,7 @@ export const reviews = () => {
   username.className = 'username';
   username.textContent = 'nombre de usuario';
 
-  const inputReview = document.createElement('input');
+  const inputReview = document.createElement('textarea');
   inputReview.className = 'input-review';
 
   const postReviewButton = document.createElement('button');
@@ -59,6 +59,9 @@ export const reviews = () => {
 
   // postReviewButton.addEventListener('click', () => {
   // });
+
+  // otra promesa ? o un if, que al ejecutarse el evento se muestre otra estructura de html
+  // trabajar con textarea.value (?)
 
   divReview.append(bannerContainer, reviewSection);
   bannerContainer.append(albumTitle, buttonBackReview);
