@@ -51,6 +51,19 @@ export const createReview = (username, comment) => setDoc(doc(collection(db, 're
   likes: [],
 });
 
+// export function createReview(username, comment) {
+//   const dbRef = doc(collection(db, 'reviews'));
+//   const data = {
+//     username,
+//     comment,
+//     likes: [],
+//   };
+
+//   const result = setDoc(dbRef, data);
+
+//   return result;
+// }
+
 // onAuthStateChanged(auth, (user) => {
 //   if (user) {
 //     onNavigate('/home');

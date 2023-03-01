@@ -1,4 +1,5 @@
 import { onNavigate } from '../router/utils';
+import { createReview } from '../lib-firebase/index.js';
 
 export const reviews = () => {
   // Elementos del DOM
@@ -46,6 +47,7 @@ export const reviews = () => {
 
   const inputReview = document.createElement('textarea');
   inputReview.className = 'input-review';
+  inputReview.id = 'commentReview';
 
   const postReviewButton = document.createElement('button');
   postReviewButton.id = 'postReviewButton';
@@ -57,8 +59,24 @@ export const reviews = () => {
     onNavigate('/album');
   });
 
-  // postReviewButton.addEventListener('click', () => {
-  // });
+  // Post Comment
+  postReviewButton.addEventListener('click', () => {
+    const commentField = document.getElementById('commentReview').value;
+
+    // createReview("hola", "cposdfsdfd");
+    console.log('continue ....');
+
+    createReview(123456, 'ñaña')
+      .then(() => {
+        // T ODO: cuando la promesa se resuelva
+        // alert("exito")
+        // renderizarPublicaciones();
+      })
+      .catch((err) => {
+        // alert("ocurrio un error" + err)
+      });
+    console.log('continue 2....');
+  });
 
   // otra promesa ? o un if, que al ejecutarse el evento se muestre otra estructura de html
   // trabajar con textarea.value (?)
