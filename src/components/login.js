@@ -2,6 +2,13 @@ import { onNavigate } from '../router/utils';
 import { signIn as signInFirebase } from '../lib-firebase';
 
 export const logIn = () => {
+  const desktopContainer = document.createElement('div');
+  desktopContainer.className = 'desktop-container';
+
+  const desktopImg = document.createElement('img');
+  desktopImg.className = 'desktop-img';
+  desktopImg.src = 'img/dj.png';
+
   const divLogin = document.createElement('div');
   divLogin.className = 'login-container';
   const inputEmail = document.createElement('input');
@@ -20,7 +27,7 @@ export const logIn = () => {
   title.textContent = 'Sign In';
   title.className = 'sign-in-title';
 
-  //error content
+  // error content
   const errorContent = document.createElement('p');
   errorContent.id = 'errorContent';
   errorContent.className = 'error-content';
@@ -54,7 +61,7 @@ export const logIn = () => {
   arrow.className = 'arrow';
   arrow.src = 'img/flechita.png';
 
-  //Registro
+  // Registro
 
   const bottomTextContainer = document.createElement('div');
   bottomTextContainer.className = 'bottom-text-container';
@@ -91,18 +98,19 @@ export const logIn = () => {
     onNavigate('/');
   });
 
-  divLogin.append(logo, loginForm, buttonLogin,bottomTextContainer);
+  desktopContainer.append(desktopImg, divLogin);
+  divLogin.append(logo, loginForm, buttonLogin, bottomTextContainer);
   loginForm.append(
     title,
     errorContent,
     email,
     inputEmail,
     password,
-    inputPass, 
+    inputPass,
   );
   buttonLogin.appendChild(arrow);
 
-  bottomTextContainer.append(bottomText,logInText)
+  bottomTextContainer.append(bottomText, logInText);
 
-  return divLogin;
+  return desktopContainer;
 };
