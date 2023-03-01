@@ -5,7 +5,7 @@ export const album = () => {
   sectionAlbum.className = 'main-container-album';
 
   const header = document.createElement('header');
-  header.className = 'header';
+  header.className = 'header-home';
 
   const logoHome = document.createElement('img');
   logoHome.className = 'logoHome';
