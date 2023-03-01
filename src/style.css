@@ -1,5 +1,30 @@
-.logoInicio {
-  display: flex;
-  justify-content: center;
-  width: 30%;
-}
+/* MEDIA QUERIES */
+
+/* Versión Escritorio */
+@media (max-width: 1200px){
+      /* .sign-up-container {
+          display: grid;
+          grid-template-columns: 50% 50%;
+      } */
+  }
+     
+  /* Versión Tableta */
+  @media (min-width: 535px) and (max-width: 824px){
+    .sign-up-form {
+      width: 40%;
+    }
+
+  }
+  
+  /* Versione Movil */
+  @media (min-width: 200px) and (max-width: 534px){   
+      .desktop-container {
+          display: grid;
+          grid-template-columns: 100%;   
+      };
+
+      .desktop-img {
+        display: none;
+      }
+  }    
+  
