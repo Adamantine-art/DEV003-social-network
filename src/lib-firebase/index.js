@@ -45,24 +45,24 @@ export const loginWithGoogle = () => {
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 
-export const createReview = (username, comment) => setDoc(doc(collection(db, 'reviews')), {
-  username,
-  comment,
-  likes: [],
-});
+// export const createReview = (username, comment) => setDoc(doc(collection(db, 'reviews')), {
+//   username,
+//   comment,
+//   likes: [],
+// });
 
-// export function createReview(username, comment) {
-//   const dbRef = doc(collection(db, 'reviews'));
-//   const data = {
-//     username,
-//     comment,
-//     likes: [],
-//   };
+export function createReview(username, comment) {
+  const dbRef = doc(collection(db, 'reviews'));
+  const data = {
+    username,
+    comment,
+    likes: [],
+  };
 
-//   const result = setDoc(dbRef, data);
+  const result = setDoc(dbRef, data);
 
-//   return result;
-// }
+  return result;
+}
 
 // onAuthStateChanged(auth, (user) => {
 //   if (user) {

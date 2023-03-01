@@ -44,6 +44,7 @@ export const reviews = () => {
   const username = document.createElement('div');
   username.className = 'username';
   username.textContent = 'nombre de usuario';
+  username.id = 'user';
 
   const inputReview = document.createElement('textarea');
   inputReview.className = 'input-review';
@@ -62,15 +63,16 @@ export const reviews = () => {
   // Post Comment
   postReviewButton.addEventListener('click', () => {
     const commentField = document.getElementById('commentReview').value;
+    const user = document.getElementById('user').value;
 
-    // createReview("hola", "cposdfsdfd");
     console.log('continue ....');
 
-    createReview(123456, 'ñaña')
-      .then(() => {
+    createReview(user, commentField)
+      .then((result) => {
         // T ODO: cuando la promesa se resuelva
         // alert("exito")
         // renderizarPublicaciones();
+
       })
       .catch((err) => {
         // alert("ocurrio un error" + err)

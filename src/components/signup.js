@@ -2,6 +2,14 @@ import { signUpFirebase, loginWithGoogle } from '../lib-firebase/index.js';
 import { onNavigate } from '../router/utils';
 
 export const signUp = (props = {}) => {
+  const desktopContainer = document.createElement('div');
+  desktopContainer.className = 'desktop-container';
+
+  const desktopImg = document.createElement('img');
+  desktopImg.className = 'desktop-img';
+  desktopImg.src = 'img/dj.png';
+  desktopImg.id = 'desktopImg';
+
   const divSignUp = document.createElement('div');
   divSignUp.className = 'sign-up-container';
 
@@ -124,12 +132,13 @@ export const signUp = (props = {}) => {
     onNavigate('/login');
   });
 
+  desktopContainer.append(desktopImg, divSignUp);
   divSignUp.append(logo, signUpForm, buttonSignUp, bottomTextContainer);
   signUpForm.append(title, errorContent, email, inputEmail, password, inputPass, line, buttonLogIn);
   buttonSignUp.appendChild(arrow);
   bottomTextContainer.append(bottomText, logInText);
 
-  return divSignUp;
+  return desktopContainer;
 };
 
 // export const signUp = `
