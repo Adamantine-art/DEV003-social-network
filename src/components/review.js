@@ -63,7 +63,7 @@ export const reviews = () => {
   // Post Comment
   postReviewButton.addEventListener('click', () => {
     const commentField = document.getElementById('commentReview').value;
-    const user = document.getElementById('user').value;
+    const user = document.getElementById('user').innerHTML;
 
     console.log('continue ....');
 
