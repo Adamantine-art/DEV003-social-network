@@ -136,8 +136,22 @@ body {
     width: 20%;
     height: 15%;
     margin: 1%;
+    font-size: 14px;
 }
 
+@media (min-width: 824px) {
+    .category-container1, .category-container2  {
+        flex-direction: row;
+        padding-left: 8px;
+        padding-right: 8px; 
+    }
+
+    .favorites, .trending, .songs, .genres, .albums, .artists {
+        background-size: cover;
+        font-size: 20px;
+    }
+
+}
 /* .recommended {
     color: #FFFFFF;
 }
