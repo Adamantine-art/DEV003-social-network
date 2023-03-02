@@ -1,5 +1,5 @@
 import { onNavigate } from '../router/utils';
-import { createReview } from '../lib-firebase/index.js';
+import { createReview, getReview } from '../lib-firebase/index.js';
 
 export const reviews = () => {
   // Elementos del DOM
@@ -65,24 +65,22 @@ export const reviews = () => {
     const commentField = document.getElementById('commentReview').value;
     const user = document.getElementById('user').innerHTML;
 
-    console.log('continue ....',user, commentField);
+    // console.log('continue ....', user, commentField);
 
     createReview(user, commentField)
       .then((result) => {
+        getReview();
         // T ODO: cuando la promesa se resuelva
-         alert("exito", result)
+        alert('exito', result);
         // renderizarPublicaciones();
-
       })
       .catch((err) => {
-        
-        // alert("ocurrio un error" + err)
+        // alert(`ocurrio un error${err}`);
+        if (commentField === '') {
+          alert('Campo vacío', err);
+        }
       });
-    console.log('continue 2....');
   });
-
-  // otra promesa ? o un if, que al ejecutarse el evento se muestre otra estructura de html
-  // trabajar con textarea.value (?)
 
   divReview.append(bannerContainer, reviewSection);
   bannerContainer.append(albumTitle, buttonBackReview);
