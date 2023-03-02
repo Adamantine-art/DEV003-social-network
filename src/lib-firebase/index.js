@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword, getRedirectResult,
 } from 'firebase/auth';
 import {
-  getFirestore, doc, setDoc, collection,
+  getFirestore, doc, setDoc, collection, getDocs,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -64,6 +64,13 @@ export function createReview(username, comment) {
   return result;
 }
 
+// Collecting data from FireStore
+export function getReview() {
+  const getCollection = getDocs(collection(db, 'reviews'));
+  getCollection.forEach((doc) => {
+    console.log(doc.id, ' => ', doc.data());
+  });
+}
 // onAuthStateChanged(auth, (user) => {
 //   if (user) {
 //     onNavigate('/home');
