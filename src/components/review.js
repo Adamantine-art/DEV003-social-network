@@ -63,18 +63,19 @@ export const reviews = () => {
   // Post Comment
   postReviewButton.addEventListener('click', () => {
     const commentField = document.getElementById('commentReview').value;
-    const user = document.getElementById('user').value;
+    const user = document.getElementById('user').innerHTML;
 
-    console.log('continue ....');
+    console.log('continue ....',user, commentField);
 
     createReview(user, commentField)
       .then((result) => {
         // T ODO: cuando la promesa se resuelva
-        // alert("exito")
+         alert("exito", result)
         // renderizarPublicaciones();
 
       })
       .catch((err) => {
+        
         // alert("ocurrio un error" + err)
       });
     console.log('continue 2....');
