@@ -102,33 +102,69 @@
     font-size: 0.938rem;
 }
 
-/* Versión Escritorio */
-@media(min-width: 650px) and (max-width: 1440px) {
+/* Versión Tablets*/
+@media(min-width: 600px) {
     
     .button-back-review{
        
-        margin-top: -5%;
+        margin-top: -6%;
         width: 80px;
         height: 80px;
     }
-    .review-box-container{
-        height: 100%;
+    
+    .review-section{
         
+        height: 20%;
+    }
+
+    .review-box-container{
+     
+        height: 10%;
     }
 
     .user-container {
-        height: auto;
+        height: 5%;
     }
-    .profile-icon{
-        width: 60px;
-        height: 60px;
-    }
-
     .input-review{
-        height: auto;
+        height: 80px;
        
     }
     .post-review-button{
         width: 8rem;
     }
   }
+
+  /* Versión desktop */
+@media(min-width: 824px) {
+    
+    .button-back-review{
+        width: 90px;
+        height: 90px;
+    }
+    .review-section{
+        
+        height: 20%;
+    }
+
+    .review-box-container{
+     
+        height: 10%;
+    }
+
+    .user-container {
+        height: 5%;
+    }
+    .profile-icon{
+        width: 90px;
+        height: 90px;
+    }
+
+    .input-review{
+        height: 100px;
+       
+    }
+    .post-review-button{
+        width: 8rem;
+    }
+  }
+
