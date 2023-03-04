@@ -1,5 +1,6 @@
 import { onNavigate } from '../router/utils';
 import { createReview, getReview } from '../lib-firebase/index.js';
+import { printReviews } from './printReview.js';
 
 export const reviews = () => {
   // Elementos del DOM
@@ -69,10 +70,10 @@ export const reviews = () => {
 
     createReview(user, commentField)
       .then((result) => {
-        // T ODO: cuando la promesa se resuelva
         alert('exito', result);
         // renderizarPublicaciones();
         getReview();
+        printReviews();
       })
       .catch((err) => {
         // alert(`ocurrio un error${err}`);

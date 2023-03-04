@@ -25,7 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // función de autenticación
-const auth = getAuth();
+export const auth = getAuth();
 // eslint-disable-next-line max-len
 export const signUpFirebase = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
@@ -65,12 +65,22 @@ export function createReview(username, comment) {
 }
 
 // Collecting data from FireStore
-export function getReview() {
-  const getCollection = getDocs(collection(db, 'reviews'));
-  getCollection.forEach((doc) => {
-    console.log(doc.id, ' => ', doc.data());
+// export function getReview() {
+//   const getCollection = getDocs(collection(db, 'reviews'));
+//   getCollection.forEach((doc) => {
+//     console.log(doc.id, ' => ', doc.data());
+//   });
+// }
+
+// Prueba
+export const getReview = () => {
+  getDocs(collection(db, 'reviews')).then((reviews) => {
+    reviews.forEach((doc) => {
+      console.log(doc.id, '=> ', doc.data().comment);
+    });
   });
-}
+};
+
 // onAuthStateChanged(auth, (user) => {
 //   if (user) {
 //     onNavigate('/home');
