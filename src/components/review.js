@@ -41,6 +41,7 @@ export const reviews = () => {
 
   const profileIcon = document.createElement('div');
   profileIcon.className = 'profile-icon';
+  profileIcon.id = 'profileIcon';
 
   const username = document.createElement('div');
   username.className = 'username';
@@ -59,6 +60,11 @@ export const reviews = () => {
   // Event listeners
   buttonBackReview.addEventListener('click', () => {
     onNavigate('/album');
+  });
+
+  // pruebingas
+  profileIcon.addEventListener('click', () => {
+    getReview();
   });
 
   // Post Comment

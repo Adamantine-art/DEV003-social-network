@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword, getRedirectResult,
 } from 'firebase/auth';
 import {
-  getFirestore, doc, setDoc, collection, getDocs,
+  getFirestore, doc, setDoc, collection, getDocs, getDoc
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -74,10 +74,14 @@ export function createReview(username, comment) {
 
 // Prueba
 export const getReview = () => {
+  let asd = [];
   getDocs(collection(db, 'reviews')).then((reviews) => {
     reviews.forEach((doc) => {
-      console.log(doc.id, '=> ', doc.data().comment);
+      console.log(doc.id, '=> ', doc.data().comment, doc.metadata);
+      asd.push(doc.data().comment)
     });
+  
+    console.log(" AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", asd, asd[asd.length - 1]);
   });
 };
 
