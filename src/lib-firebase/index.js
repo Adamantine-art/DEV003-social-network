@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword, getRedirectResult,
 } from 'firebase/auth';
 import {
-  getFirestore, doc, setDoc, collection, getDocs, getDoc
+  getFirestore, doc, setDoc, collection, getDocs,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -72,16 +72,15 @@ export function createReview(username, comment) {
 //   });
 // }
 
+// TO DO: Buscar la forma de ordenar los datos segun orden de creación -> puede ser con un
+// timestamp createdAt o agregarle un index
+
 // Prueba
 export const getReview = () => {
-  let asd = [];
   getDocs(collection(db, 'reviews')).then((reviews) => {
     reviews.forEach((doc) => {
-      console.log(doc.id, '=> ', doc.data().comment, doc.metadata);
-      asd.push(doc.data().comment)
+      console.log(doc.id, '=> ', doc.data().comment);
     });
-  
-    console.log(" AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", asd, asd[asd.length - 1]);
   });
 };
 

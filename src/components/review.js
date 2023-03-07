@@ -1,6 +1,5 @@
 import { onNavigate } from '../router/utils';
 import { createReview, getReview } from '../lib-firebase/index.js';
-import { printReviews } from './printReview.js';
 
 export const reviews = () => {
   // Elementos del DOM
@@ -57,29 +56,47 @@ export const reviews = () => {
   postReviewButton.className = 'post-review-button';
   postReviewButton.textContent = 'Publicar';
 
+  const newReview = document.createElement('div');
+  newReview.className = 'new-review';
+
   // Event listeners
   buttonBackReview.addEventListener('click', () => {
     onNavigate('/album');
   });
 
-  // pruebingas
-  profileIcon.addEventListener('click', () => {
-    getReview();
-  });
+  // Print Review - estructura del nuevo review creado
+  const printReviews = () => {
+    const commentField = document.getElementById('commentReview').value;
+
+    const commentedReview = `
+    <div class="review-box-container">
+    <div class="user-container">
+      <div class="profile-icon" id="profileIcon"></div>
+      <div class="username" id="user">nombre de usuario</div>
+    </div>
+    <p class="comment-review" id="commentReview">${commentField}</p>
+    <div class="edit-delete-icons">
+      <img src="img/edit-pencil.png" class="edit-icon" alt="edit">
+      <img src="img/trash.png" class="delete-icon" alt="delete">
+    </div>
+  </div>`;
+
+    newReview.insertAdjacentHTML('beforeEnd', commentedReview);
+  };
 
   // Post Comment
   postReviewButton.addEventListener('click', () => {
     const commentField = document.getElementById('commentReview').value;
     const user = document.getElementById('user').innerHTML;
 
-    // console.log('continue ....', user, commentField);
+    printReviews(); // esta función al ejecutarse renderiza las publicaciones
 
     createReview(user, commentField)
       .then((result) => {
         alert('exito', result);
         // renderizarPublicaciones();
         getReview();
-        printReviews();
+        // newReview.style.display = 'flex';
       })
       .catch((err) => {
         // alert(`ocurrio un error${err}`);
@@ -89,7 +106,7 @@ export const reviews = () => {
       });
   });
 
-  divReview.append(bannerContainer, reviewSection);
+  divReview.append(bannerContainer, reviewSection, newReview);
   bannerContainer.append(albumTitle, buttonBackReview);
   albumTitle.appendChild(albumDate);
   buttonBackReview.appendChild(backArrow);

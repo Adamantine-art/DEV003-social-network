@@ -93,6 +93,7 @@ body {
     width: 20%;
     height: 15%;
     margin: 1%;
+    cursor: pointer;
 }
 
 .albums:hover {
