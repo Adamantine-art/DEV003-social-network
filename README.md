@@ -29,6 +29,18 @@ A continuación se enumeran las historias de usuario a partir de las cuales trab
 
 * Criterios de aceptación: tener una estructura definida, ordenada e intuitiva para el usuario, que permita de forma fácil registrarse en la app mediante un correo electrónico o con su cuenta de Google.
 
+### Historia N°2: "Como amante de la música me interesa compartir un review de mis álbumes preferidos para apoyar el trabajo de los artistas".
+
+* Definición de terminado: crear pantalla de Reviews y habilitar función de comentar.
+
+* Criterios de aceptación: tener un campo de texto funcional para que el usuario pueda comentar el álbum, con su respectivo botón de "Publicar".
+
+### Historia N°3: "Como amante de la música me interesa leer los reviews de otros usuarios para aventurarme en diferentes estilos musicales".
+
+* Definición de terminado: proyectar el historial de reviews realizados.
+
+* Criterios de aceptación: mostrar una lista de reviews con los estilos previamente definidos en el prototipo de alta fidelidad.
+
 
 ## 3. Diseño de la Interfaz de Usuario
 
@@ -63,7 +75,7 @@ Como cambio fundamental en nuestro prototipo de alta fidelidad podemos mencionar
 ### Prototipo de alta fidelidad
 
   Nos dividimos los prototipos de alta fidelidad: una trabajó la versión de escritorio y la otra trabajó la versión mobile.
-  Después del Test de Usuario como dupla decidimos modificar algunos elementos a partir del feedback recibido.
+  Después del Test de Usuario como equipo decidimos modificar algunos elementos a partir del feedback recibido.
   Finalmente nos basamos en el prototipo ya modificado para dar paso a la estructura del HTML y CSS.
 
 - [ ] **Diseñados en la herramienta de Figma**
@@ -87,19 +99,19 @@ Como cambio fundamental en nuestro prototipo de alta fidelidad podemos mencionar
 
 La implementación consta en:
 
-* HTML: 
+* HTML: Se contruyó de manera dinámica principalmente en hojas de Javascript utilizando el método createElement, innerHTML y template Strings, dividiendo cada vista por separado, agrupándolas en una carpeta de componentes.
 
 * CSS: Se agregaron estilos a cada sección correspondiente. La interfaz sigue los fundamentos del Visual Design.
 
 Es responsive, se visualiza sin problemas desde distintos tamaños de pantallas: móviles, tablets y desktops. Se trabajó con Media Queries.
 
-* JavaScript: 
+* JavaScript: Este proyecto se realizó con Firebase y sin utilizar ningún framework. Se crearon las rutas correspondientes y se definió el flujo de navegación utilizando window History, para luego crear los componentes que van a construir nuestra página web, además de testear la función asíncrona de Sign Up.
 
 
 ### Pruebas unitarias
 
 #### Listado de problemas:
 
-× la función de SignUp se tarda demasiado en testearse, por lo que se opta por agregar el método de finally dentro de la promesa, para definir cuándo termina de testearse dicha función.
-× debe mostrar error cuando el usuario no llene todos los campos.
-× debe mostrar error cuando la constraseña tenga menos de 6 caracteres.
+* la función de SignUp se tarda demasiado en testearse, por lo que se opta por agregar el método de finally dentro de la promesa, para definir cuándo termina de testearse dicha función.
+* debe mostrar error cuando el usuario no llene todos los campos.
+* debe mostrar error cuando la constraseña tenga menos de 6 caracteres.

@@ -35,6 +35,7 @@
     margin-top: -10%;
     padding: 1%;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
 }
 
 .button-back-review:hover {
@@ -58,7 +59,8 @@
     display: flex;
     flex-direction: column;
     padding-top: 5%;
-    padding-left: 8%;
+    padding-left: 5%;
+    margin-bottom: 5%;
 }
 
 .user-container {
@@ -95,4 +97,38 @@
     padding-top: 2%;
     padding-bottom: 2%;
     margin-bottom: 5%;
+    cursor: pointer;
+}
+
+.new-review {
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.edit-delete-icons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 5%;
+}
+
+.edit-icon, .delete-icon {
+    display: flex;
+    justify-content: space-around;
+    padding: 2%;
+    cursor: pointer;
+}
+
+.edit-icon:hover, .delete-icon:hover {
+    background: rgba(0, 0, 0, 0.5);
+    border-style: none;
+    border-radius: 50%;
+    padding: 2%;
+}
+
+.delete-icon {
+    margin-left: 5%;
 }
