@@ -56,7 +56,7 @@ export const reviews = () => {
   postReviewButton.className = 'post-review-button';
   postReviewButton.textContent = 'Publicar';
 
-  let htmlResult = document.createElement('div'); // enlazar este div al dom
+  const htmlResult = document.createElement('div'); // enlazar este div al dom
   htmlResult.className = 'new-review';
 
   // Event listeners
@@ -76,7 +76,7 @@ export const reviews = () => {
     </div>
     <p class="comment-review" id="commentReview">${commentField}</p>
     <div class="edit-delete-icons">
-      <img src="img/edit-pencil.png" class="edit-icon" alt="edit">
+      <img src="img/edit-pencil.png" class="edit-icon" alt="edit"> 
       <img src="img/trash.png" class="delete-icon" alt="delete">
     </div>
   </div>`;
@@ -89,7 +89,7 @@ export const reviews = () => {
     htmlResult.innerHTML = '';
     getReview().then((arrayReviews) => {
       arrayReviews.forEach((element) => {
-        htmlResult += printReviews(element.data().comment);
+        htmlResult.innerHTML += printReviews(element.data().comment);
       });
     });
   }
@@ -114,6 +114,7 @@ export const reviews = () => {
       });
   });
 
+
   divReview.append(bannerContainer, reviewSection, htmlResult);
   bannerContainer.append(albumTitle, buttonBackReview);
   albumTitle.appendChild(albumDate);
@@ -122,5 +123,6 @@ export const reviews = () => {
   reviewBoxContainer.append(userContainer, inputReview, postReviewButton);
   userContainer.append(profileIcon, username);
 
+  showReviews()
   return divReview;
 };
