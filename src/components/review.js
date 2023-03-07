@@ -69,7 +69,7 @@ export const reviews = () => {
 
     createReview(user, commentField)
       .then((result) => {
-        getReview();
+         getReview();
         // T ODO: cuando la promesa se resuelva
         alert('exito', result);
         // renderizarPublicaciones();

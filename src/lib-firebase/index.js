@@ -10,6 +10,7 @@ import {
 import {
   getFirestore, doc, setDoc, collection, getDocs,
 } from 'firebase/firestore';
+import { reviews } from '../components/review';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA1E6v0tl-VMKi90Oqck7ywqNNbgBj6lBE',
@@ -66,9 +67,10 @@ export function createReview(username, comment) {
 
 // Collecting data from FireStore
 export function getReview() {
-  const getCollection = getDocs(collection(db, 'reviews'));
-  getCollection.forEach((doc) => {
-    console.log(doc.id, ' => ', doc.data());
+  getDocs(collection(db, 'reviews')).then((reviews) =>{
+    reviews.forEach((doc) => {
+      console.log(doc.id, ' => ', doc.data());
+  });
   });
 }
 // onAuthStateChanged(auth, (user) => {
