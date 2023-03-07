@@ -76,13 +76,7 @@ export function createReview(username, comment) {
 // timestamp createdAt o agregarle un index
 
 // Prueba
-export const getReview = () => {
-  getDocs(collection(db, 'reviews')).then((reviews) => {
-    reviews.forEach((doc) => {
-      console.log(doc.id, '=> ', doc.data().comment);
-    });
-  });
-};
+export const getReview = () => getDocs(collection(db, 'reviews'));
 
 // onAuthStateChanged(auth, (user) => {
 //   if (user) {

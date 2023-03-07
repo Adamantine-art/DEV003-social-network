@@ -56,8 +56,8 @@ export const reviews = () => {
   postReviewButton.className = 'post-review-button';
   postReviewButton.textContent = 'Publicar';
 
-  const newReview = document.createElement('div');
-  newReview.className = 'new-review';
+  let htmlResult = document.createElement('div'); // enlazar este div al dom
+  htmlResult.className = 'new-review';
 
   // Event listeners
   buttonBackReview.addEventListener('click', () => {
@@ -65,8 +65,8 @@ export const reviews = () => {
   });
 
   // Print Review - estructura del nuevo review creado
-  const printReviews = () => {
-    const commentField = document.getElementById('commentReview').value;
+  const printReviews = (commentField) => {
+    // const commentField = document.getElementById('commentReview').value;
 
     const commentedReview = `
     <div class="review-box-container">
@@ -81,8 +81,18 @@ export const reviews = () => {
     </div>
   </div>`;
 
-    newReview.insertAdjacentHTML('beforeEnd', commentedReview);
+    return commentedReview;
+    // newReview.insertAdjacentHTML('beforeEnd', commentedReview);
   };
+
+  function showReviews() {
+    htmlResult.innerHTML = '';
+    getReview().then((arrayReviews) => {
+      arrayReviews.forEach((element) => {
+        htmlResult += printReviews(element.data().comment);
+      });
+    });
+  }
 
   // Post Comment
   postReviewButton.addEventListener('click', () => {
@@ -94,9 +104,7 @@ export const reviews = () => {
     createReview(user, commentField)
       .then((result) => {
         alert('exito', result);
-        // renderizarPublicaciones();
-        getReview();
-        // newReview.style.display = 'flex';
+        showReviews();
       })
       .catch((err) => {
         // alert(`ocurrio un error${err}`);
@@ -106,7 +114,7 @@ export const reviews = () => {
       });
   });
 
-  divReview.append(bannerContainer, reviewSection, newReview);
+  divReview.append(bannerContainer, reviewSection, htmlResult);
   bannerContainer.append(albumTitle, buttonBackReview);
   albumTitle.appendChild(albumDate);
   buttonBackReview.appendChild(backArrow);
