@@ -93,6 +93,7 @@ body {
     width: 20%;
     height: 15%;
     margin: 1%;
+    cursor: pointer;
 }
 
 .albums:hover {
@@ -139,6 +140,7 @@ body {
     font-size: 14px;
 }
 
+/* MEDIA QUERIES */
 @media (min-width: 824px) {
     .category-container1, .category-container2  {
         flex-direction: row;
