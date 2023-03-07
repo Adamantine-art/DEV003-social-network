@@ -25,7 +25,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // función de autenticación
-const auth = getAuth();
+export const auth = getAuth();
 // eslint-disable-next-line max-len
 export const signUpFirebase = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
@@ -65,12 +65,19 @@ export function createReview(username, comment) {
 }
 
 // Collecting data from FireStore
-export function getReview() {
-  const getCollection = getDocs(collection(db, 'reviews'));
-  getCollection.forEach((doc) => {
-    console.log(doc.id, ' => ', doc.data());
-  });
-}
+// export function getReview() {
+//   const getCollection = getDocs(collection(db, 'reviews'));
+//   getCollection.forEach((doc) => {
+//     console.log(doc.id, ' => ', doc.data());
+//   });
+// }
+
+// TO DO: Buscar la forma de ordenar los datos segun orden de creación -> puede ser con un
+// timestamp createdAt o agregarle un index
+
+// Prueba
+export const getReview = () => getDocs(collection(db, 'reviews'));
+
 // onAuthStateChanged(auth, (user) => {
 //   if (user) {
 //     onNavigate('/home');
