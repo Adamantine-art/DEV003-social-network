@@ -10,6 +10,7 @@ import {
 import {
   getFirestore, doc, setDoc, collection, getDocs,
 } from 'firebase/firestore';
+import { reviews } from '../components/review';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyA1E6v0tl-VMKi90Oqck7ywqNNbgBj6lBE',
