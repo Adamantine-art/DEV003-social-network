@@ -1,5 +1,5 @@
 import { onNavigate } from '../router/utils';
-import { createReview, getReview } from '../lib-firebase/index.js';
+import { createReview, getReview, deleteReview } from '../lib-firebase/index.js';
 
 export const reviews = () => {
   // Elementos del DOM
@@ -23,7 +23,7 @@ export const reviews = () => {
 
   const backArrow = document.createElement('img');
   backArrow.className = 'arrow-left';
-  backArrow.src = 'img/arrow-left.png';
+  backArrow.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/arrow-left.png';
 
   const reviewSection = document.createElement('div');
   reviewSection.className = 'review-section';
@@ -59,6 +59,17 @@ export const reviews = () => {
   const htmlResult = document.createElement('div'); // enlazar este div al dom
   htmlResult.className = 'new-review';
 
+  const editDeleteIcons = document.createElement('div');
+  editDeleteIcons.className = 'edit-delete-icons';
+
+  const editIcon = document.createElement('img');
+  editIcon.className = 'edit-icon';
+  editIcon.src ='https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/edit-pencil.png'
+
+  const deleteIcon = document.createElement('img');
+  deleteIcon.className = 'delete-icon';
+  deleteIcon.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/trash.png';
+
   // Event listeners
   buttonBackReview.addEventListener('click', () => {
     onNavigate('/album');
@@ -76,8 +87,8 @@ export const reviews = () => {
     </div>
     <p class="comment-review" id="commentReview">${commentField}</p>
     <div class="edit-delete-icons">
-      <img src="img/edit-pencil.png" class="edit-icon" alt="edit"> 
-      <img src="img/trash.png" class="delete-icon" alt="delete">
+      <button src="img/edit-pencil.png" class="edit-icon" alt="edit"></button>
+      <button src="img/trash.png" class="delete-icon" alt="delete"></button>
     </div>
   </div>`;
 
@@ -90,9 +101,27 @@ export const reviews = () => {
     getReview().then((arrayReviews) => {
       arrayReviews.forEach((element) => {
         htmlResult.innerHTML += printReviews(element.data().comment);
+        editDeleteIcons.style.display='block';
       });
     });
   }
+// const deleteButton = document.getElementsByClassName('delete-icon')
+ //deleteButton.addEventListener('click', () =>{
+  //function deletePost (){
+    //deleteReview().then((result) =>{
+     //alert('Eliminar definitivamente?',result);
+   // })
+  //}
+ //})
+
+ 
+ // deleteButton.addEventListener('click', () => {
+  //function deletePost() {
+    //deleteReview().then((result)=>{
+      //alert('Eliminar definitivamente?',result);
+    //});
+  //};
+
 
   // Post Comment
   postReviewButton.addEventListener('click', () => {
@@ -122,7 +151,10 @@ export const reviews = () => {
   reviewSection.append(reviewTitle, reviewBoxContainer);
   reviewBoxContainer.append(userContainer, inputReview, postReviewButton);
   userContainer.append(profileIcon, username);
+  htmlResult.appendChild(editDeleteIcons);
+  editDeleteIcons.append(editIcon,deleteIcon);
 
   showReviews()
+  deleteReview()
   return divReview;
-};
+  };

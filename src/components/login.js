@@ -7,7 +7,7 @@ export const logIn = () => {
 
   const desktopImg = document.createElement('img');
   desktopImg.className = 'desktop-img';
-  desktopImg.src = 'img/dj.png';
+  desktopImg.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/dj.png';
 
   const divLogin = document.createElement('div');
   divLogin.className = 'login-container';
@@ -16,7 +16,7 @@ export const logIn = () => {
   // LOGO
   const logo = document.createElement('img');
   logo.className = 'logo';
-  logo.src = 'img/logo mapa de bits.png';
+  logo.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/logo%20mapa%20de%20bits.png';
 
   // Login form
   const loginForm = document.createElement('div');
@@ -59,7 +59,7 @@ export const logIn = () => {
   // Flechita
   const arrow = document.createElement('img');
   arrow.className = 'arrow';
-  arrow.src = 'img/flechita.png';
+  arrow.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/flechita.png';
 
   // Registro
 
