@@ -8,7 +8,7 @@ import {
   signInWithEmailAndPassword, getRedirectResult,
 } from 'firebase/auth';
 import {
-  getFirestore, doc, setDoc, collection, getDocs,
+  getFirestore, doc, setDoc, collection, getDocs,deleteDoc
 } from 'firebase/firestore';
 import { reviews } from '../components/review';
 
@@ -86,3 +86,5 @@ export const getReview = () => getDocs(collection(db, 'reviews'));
 //     onNavigate('/');
 //   }
 // });
+
+export const deleteReview = () => deleteDoc(doc(db, "reviews", "documentId"));

@@ -7,7 +7,7 @@ export const signUp = (props = {}) => {
 
   const desktopImg = document.createElement('img');
   desktopImg.className = 'desktop-img';
-  desktopImg.src = 'img/dj.png';
+  desktopImg.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/dj.png';
   desktopImg.id = 'desktopImg';
 
   const divSignUp = document.createElement('div');
@@ -15,7 +15,7 @@ export const signUp = (props = {}) => {
 
   const logo = document.createElement('img');
   logo.className = 'logo';
-  logo.src = 'img/logo mapa de bits.png';
+  logo.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/logo%20mapa%20de%20bits.png';
 
   const signUpForm = document.createElement('div');
   signUpForm.className = 'sign-up-form';
@@ -57,7 +57,7 @@ export const signUp = (props = {}) => {
 
   const arrow = document.createElement('img');
   arrow.className = 'arrow';
-  arrow.src = 'img/flechita.png';
+  arrow.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/flechita.png';
 
   const line = document.createElement('div');
   line.className = 'line';

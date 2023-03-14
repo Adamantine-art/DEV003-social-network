@@ -9,11 +9,11 @@ export const album = () => {
 
   const logoHome = document.createElement('img');
   logoHome.className = 'logoHome';
-  logoHome.src = 'img/logo mapa de bits.png';
+  logoHome.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/logo%20mapa%20de%20bits.png';
 
   const userIcon = document.createElement('img');
   userIcon.className = 'user';
-  userIcon.src = 'img/user.png';
+  userIcon.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/user.png';
 
   const titleMenuAlbum = document.createElement('h3');
   titleMenuAlbum.className = 'title-menu-album';
@@ -48,16 +48,16 @@ export const album = () => {
 
   const imgChatBuble = document.createElement('img');
   imgChatBuble.className = 'img-chat-bubble';
-  imgChatBuble.src = 'img/chat-bubble.png';
+  imgChatBuble.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/chat-bubble.png';
   imgChatBuble.type = 'button';
 
   const imgHeart = document.createElement('img');
   imgHeart.className = 'img-heart';
-  imgHeart.src = 'img/Vector.png';
+  imgHeart.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/Vector.png';
 
   const moreOptions = document.createElement('img');
   moreOptions.className = 'more-options';
-  moreOptions.src = 'img/more-vert.png';
+  moreOptions.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/more-vert.png';
 
   logoHome.addEventListener('click', () => {
     onNavigate('/home');
