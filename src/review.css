@@ -132,6 +132,9 @@
     border-radius: 50%;
     padding: 2%;
 }
+.edit-icon{
+    /* background-image: url(https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/edit-pencil.png); */
+}
 
 .delete-icon {
     margin-left: 5%;

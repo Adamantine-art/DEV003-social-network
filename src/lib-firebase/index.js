@@ -87,4 +87,4 @@ export const getReview = () => getDocs(collection(db, 'reviews'));
 //   }
 // });
 
-export const deleteReview = () => deleteDoc(doc(db, "reviews", "documentId"));
+export const deleteReview = (documentId) => deleteDoc(doc(db, 'reviews', documentId));

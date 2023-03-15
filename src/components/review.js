@@ -59,16 +59,6 @@ export const reviews = () => {
   const htmlResult = document.createElement('div'); // enlazar este div al dom
   htmlResult.className = 'new-review';
 
-  const editDeleteIcons = document.createElement('div');
-  editDeleteIcons.className = 'edit-delete-icons';
-
-  const editIcon = document.createElement('img');
-  editIcon.className = 'edit-icon';
-  editIcon.src ='https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/edit-pencil.png'
-
-  const deleteIcon = document.createElement('img');
-  deleteIcon.className = 'delete-icon';
-  deleteIcon.src = 'https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/trash.png';
 
   // Event listeners
   buttonBackReview.addEventListener('click', () => {
@@ -76,7 +66,7 @@ export const reviews = () => {
   });
 
   // Print Review - estructura del nuevo review creado
-  const printReviews = (commentField) => {
+  const printReviews = (commentField, commentId) => {
     // const commentField = document.getElementById('commentReview').value;
 
     const commentedReview = `
@@ -87,8 +77,10 @@ export const reviews = () => {
     </div>
     <p class="comment-review" id="commentReview">${commentField}</p>
     <div class="edit-delete-icons">
-      <button src="img/edit-pencil.png" class="edit-icon" alt="edit"></button>
-      <button src="img/trash.png" class="delete-icon" alt="delete"></button>
+      <a class="edit-icon"><img src="https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/edit-pencil.png"  alt="edit"></a>
+      <a class="delete-icon">
+        <img src="https://raw.githubusercontent.com/fabihasu/DEV003-social-network/main/src/img/trash.png"  alt="delete" data-id="${commentId}" />
+      </a>
     </div>
   </div>`;
 
@@ -96,31 +88,29 @@ export const reviews = () => {
     // newReview.insertAdjacentHTML('beforeEnd', commentedReview);
   };
 
+
   function showReviews() {
     htmlResult.innerHTML = '';
     getReview().then((arrayReviews) => {
       arrayReviews.forEach((element) => {
-        htmlResult.innerHTML += printReviews(element.data().comment);
-        editDeleteIcons.style.display='block';
+        htmlResult.innerHTML += printReviews(element.data().comment, element.id);
+        
       });
+
+      const deleteButtons = divReview.querySelectorAll('.delete-icon');
+
+      deleteButtons.forEach((deleteButton) => {
+        deleteButton.addEventListener('click', (event)=> {
+          const commentId = event.target.dataset.id
+          deleteReview(commentId).then(() => {
+            alert('Comentario eliminado exitosamente.')
+            showReviews()
+          })
+        })
+      })
     });
   }
-// const deleteButton = document.getElementsByClassName('delete-icon')
- //deleteButton.addEventListener('click', () =>{
-  //function deletePost (){
-    //deleteReview().then((result) =>{
-     //alert('Eliminar definitivamente?',result);
-   // })
-  //}
- //})
 
- 
- // deleteButton.addEventListener('click', () => {
-  //function deletePost() {
-    //deleteReview().then((result)=>{
-      //alert('Eliminar definitivamente?',result);
-    //});
-  //};
 
 
   // Post Comment
@@ -151,10 +141,10 @@ export const reviews = () => {
   reviewSection.append(reviewTitle, reviewBoxContainer);
   reviewBoxContainer.append(userContainer, inputReview, postReviewButton);
   userContainer.append(profileIcon, username);
-  htmlResult.appendChild(editDeleteIcons);
-  editDeleteIcons.append(editIcon,deleteIcon);
+  // htmlResult.appendChild(editDeleteIcons);
+  // editDeleteIcons.append(editIcon,deleteIcon);
 
   showReviews()
-  deleteReview()
+  // deleteReview()
   return divReview;
   };
